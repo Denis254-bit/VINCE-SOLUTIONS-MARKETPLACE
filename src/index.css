@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.6);
+}
+
+/* Custom Variant for Dark Mode Manual selector in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* Global high-priority overrides for seamless Dark theme propagation */
+.dark,
+.dark body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  color-scheme: dark;
+}
+
+/* Force elegant interactive transitions for standard elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Background overrides for glassmorphism effect */
+.dark .bg-white,
+.dark .bg-white\/80,
+.dark .bg-white\/90 {
+  background-color: rgba(20, 20, 20, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .bg-slate-50,
+.dark .bg-slate-50\/40 {
+  background-color: rgba(30, 41, 59, 0.3) !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+.dark .bg-slate-200 {
+  background-color: rgba(51, 65, 85, 0.6) !important;
+}
+
+.dark .bg-slate-300 {
+  background-color: rgba(71, 85, 105, 0.6) !important;
+}
+
+.dark .bg-slate-900 {
+  background-color: #0f172a !important;
+}
+
+/* Ensure navigation elements highlight and align correctly */
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-slate-100:hover,
+.dark .hover\:bg-white:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Standard text color remappings */
+.dark .text-slate-900,
+.dark .text-slate-850,
+.dark .text-slate-800,
+.dark .text-slate-750,
+.dark .text-slate-700,
+.dark .text-indigo-950,
+.dark .text-slate-950 {
+  color: #ffffff !important;
+}
+
+.dark .text-slate-500,
+.dark .text-slate-600,
+.dark .text-slate-450,
+.dark .text-slate-400 {
+  color: #a3a3a3 !important;
+}
+
+/* Border overrides to subtle electric blue */
+.dark .border-slate-100,
+.dark .border-slate-150,
+.dark .border-slate-200,
+.dark .border-slate-250,
+.dark .border-slate-300,
+.dark .border-indigo-100\/40,
+.dark .border-slate-200\/40,
+.dark .border-slate-200\/50 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Box shadows overlay adaptations */
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.65) !important;
+}
+
+/* Form and core input elements control matching */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark textarea,
+.dark select {
+  background-color: #080d1a !important;
+  border-color: #1c2744 !important;
+  color: #f3f4f6 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #52627a !important;
+}
+
+/* Modal dark backdrops styling optimization */
+.dark .fixed.inset-0.bg-slate-900\/50,
+.dark .fixed.inset-0.bg-slate-950\/50 {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Print Media Styles & Screen Overrides */
+#print-invoice-section {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: #f8fafc;
+  overflow-y: auto;
+  color: #0f172a;
+}
+
+@media print {
+  /* Hide standard application container layout */
+  body > *:not(#print-invoice-section) {
+    display: none !important;
+  }
+  
+  #root,
+  .no-print,
+  button {
+    display: none !important;
+  }
+  
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  #print-invoice-section {
+    position: absolute !important;
+    inset: 0 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .print-card-border {
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 12px !important;
+  }
+}

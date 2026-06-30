@@ -1,0 +1,8 @@
+{
+  "name": "Remix: VINCE SOLUTION MARKETPLACE",
+  "description": "Premium e-commerce portal and product catalog for Vince Investments \u0026 Solutions, featuring high-performance laptops, desktops, printers, and enterprise solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

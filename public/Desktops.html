@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Vince Investment & Solutions Ltd — Desktop Sales</title>
+    <meta name="description" content="Desktop sales catalog for Vince Investment and Solutions Limited — up to 10 desktops with real images, specs and contact/buy options." />
+    <style>
+         :root {
+            --accent: #0b74de;
+            --bg: #f6f8fb;
+            --card: #ffffff;
+            --muted: #6b7280
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            margin: 0;
+            background: var(--bg);
+            color: #0f172a
+        }
+        
+        
+        header {
+            background: linear-gradient(90deg, #072241 0%, #0b4b84 100%);
+            color: #fff;
+            padding: 28px 20px
+        }
+        
+        
+        h1 {
+            margin: 0;
+            font-size: 24px
+        }
+        
+        p.lead {
+            margin: 6px 0 0;
+            color: rgba(255, 255, 255, 0.9)
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 20px
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(12, 20, 30, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column
+        }
+        
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block
+        }
+        
+        .card-body {
+            padding: 14px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column
+        }
+        
+        .title {
+            font-weight: 600;
+            margin: 0 0 6px;
+            font-size: 15px
+        }
+        
+        .specs {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 10px
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto
+        }
+        
+        .price {
+            font-weight: 700;
+            font-size: 16px
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600
+        }
+        
+        .btn.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid rgba(11, 116, 222, 0.12)
+        }
+
+        nav {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
+        }
+
+        nav h1 {
+            margin: 0 0 12px;
+            font-size: 18px;
+            letter-spacing: 0.02em;
+        }
+
+        .nav__links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav__links button {
+            border: 1px solid rgba(11, 116, 222, 0.18);
+            background: #fff;
+            color: var(--accent);
+            border-radius: 999px;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .nav__links button:hover {
+            background: rgba(11, 116, 222, 0.08);
+        }
+
+        .nav__links button.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: transparent;
+        }
+        
+        .top-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 16px
+        }
+        
+        .search {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #e6eef9
+        }
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px
+        }
+        /* modal */
+        
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+        
+        .modal {
+            background: #fff;
+            max-width: 720px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden
+        }
+        
+        .modal .header {
+            padding: 14px 18px;
+            border-bottom: 1px solid #eef2f7;
+            display: flex;
+            justify-content: space-between
+        }
+        
+        .modal .content {
+            padding: 16px
+        }
+        
+        @media (max-width:520px) {
+            .card img {
+                height: 150px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1> SPECIAL OFFERS </h1>
+        <div class="nav__links" id="nav-links">
+            <button type="button" onclick="location.href='index.html'">Home</button>
+            <button type="button" onclick="location.href='Laptops.html'">Laptops</button>
+            <button type="button" onclick="location.href='Printers.html'">Printers</button>
+            <button type="button" class="active" onclick="location.href='Desktops.html'">Desktops</button>
+            <button type="button" onclick="location.href='business-solutions.html'">Business Solutions</button>
+            <button type="button" onclick="location.href='About us.html'">About Us</button>
+        </div>
+    </nav>
+    <header>
+        <div class="container">
+            <h1>Find Your premium Desktops</h1>
+            <p class="lead">Curated desktop PCs — real photos, clear specs, and easy contact/buy options.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="top-controls">
+            <input id="search" class="search" placeholder="Search model, CPU, RAM, price..." />
+            <button class="btn" id="viewAll">View all</button>
+            <button class="btn secondary" id="contactBtn">Contact Sales</button>
+        </div>
+
+        <!-- Product grid (10 desktops) -->
+        <section class="grid" id="productGrid">
+
+            <article class="card" data-name="Aegis Pro" data-price="120000" data-specs="Intel i7-9700, 16GB RAM, 512GB SSD, GTX 1660">
+                <img src="https://hp.widen.net/content/8xq4kbk4i9/webp/8xq4kbk4i9.png?dpi=72&color=ffffff00&w=270" alt="Gaming desktop tower on desk">
+                <div class="card-body">
+                    <h3 class="title">Aegis Pro — Gaming Desktop</h3>
+                    <div class="specs">Intel i7-9700 · 16GB RAM · 512GB NVMe SSD · GTX 1660</div>
+                    <div class="price-row">
+                        <div class="price">KSh 120,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(0)">View</button>
+                            <button class="btn secondary" onclick="addToCart(0)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="OfficeMax 240" data-price="45000" data-specs="Intel i5-10400, 8GB RAM, 256GB SSD, Integrated Graphics">
+                <img src="https://hp.widen.net/content/tc3sjy32fc/webp/tc3sjy32fc.png?dpi=72&color=ffffff00&w=270" alt="Office desktop computer on white desk">
+                <div class="card-body">
+                    <h3 class="title">OfficeMax 240 — Workstation</h3>
+                    <div class="specs">Intel i5-10400 · 8GB RAM · 256GB SSD · Integrated Graphics</div>
+                    <div class="price-row">
+                        <div class="price">KSh 45,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(1)">View</button>
+                            <button class="btn secondary" onclick="addToCart(1)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="Creator X" data-price="180000" data-specs="AMD Ryzen 9 3900X, 32GB RAM, 1TB SSD, RTX 3070">
+                <img src="https://hp.widen.net/content/uaozmrtodg/webp/uaozmrtodg.png?dpi=72&color=ffffff00&w=270" alt="High-end desktop for creators">
+                <div class="card-body">
+                    <h3 class="title">Creator X — Content PC</h3>
+                    <div class="specs">HP OmniStudio X All-in-One Desktop Next Gen AI 27-cs1065t PC, Windows 11 Home, 27", Intel® Core™ Ultra 7, 16GB RAM, 1TB SSD, FHD, Meteor silver</div>
+                    <div class="price-row">
+                        <div class="price">KSh 180,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(2)">View</button>
+                            <button class="btn secondary" onclick="addToCart(2)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="MiniPro S" data-price="65000" data-specs="Intel i3-10100, 8GB RAM, 256GB SSD, Small Form Factor">
+                <img src="https://www.hp.com/wcsstore/hpusstore/Banners/bundles/A1VE5UA_Monitor_Kit_573x430.png?imwidth=270&imdensity=1" alt="Small form factor desktop setup">
+                <div class="card-body">
+                    <h3 class="title">HP Elite Mini 800 G9 Desktop PC + HP Series 3 Pro 23.8 inch FHD Monitor - 324pv Bundle</h3>
+                    <div class="specs">Intel i3-10100 · 8GB RAM · 256GB SSD · SFF</div>
+                    <div class="price-row">
+                        <div class="price">KSh 65,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(3)">View</button>
+                            <button class="btn secondary" onclick="addToCart(3)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="EcoWork 500" data-price="38000" data-specs="Intel Pentium Gold, 4GB RAM, 128GB SSD">
+                <img src="https://hp.widen.net/content/0d17ksgqlj/webp/0d17ksgqlj.png?dpi=72&color=ffffff00&w=270" alt="Affordable desktop PC in office">
+                <div class="card-body">
+                    <h3 class="title">HP All-in-One 27-cr0015m PC, Windows 11 Home, 27", AMD Ryzen™ 3, 8GB RAM, 256GB SSD, FHD, Jet black</h3>
+                    <div class="specs">Intel Pentium Gold · 4GB RAM · 128GB SSD</div>
+                    <div class="price-row">
+                        <div class="price">KSh 38,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(4)">View</button>
+                            <button class="btn secondary" onclick="addToCart(4)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="Workhorse Z" data-price="95000" data-specs="Intel i7-10700, 16GB RAM, 1TB HDD + 256GB SSD">
+                <img src="https://hp.widen.net/content/mr6rxb8teq/webp/mr6rxb8teq.png?dpi=72&color=ffffff00&w=270" alt="Reliable desktop workstation">
+                <div class="card-body">
+                    <h3 class="title">HP Elite Mini 800 G9 Desktop PC + HP Series 7 Pro 27 inch QHD Monitor - 727pq Bundle</h3>
+                    <div class="specs">Intel i7-10700 · 16GB RAM · 1TB HDD + 256GB SSD</div>
+                    <div class="price-row">
+                        <div class="price">KSh 95,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(5)">View</button>
+                            <button class="btn secondary" onclick="addToCart(5)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="SilverLine 2" data-price="72000" data-specs="AMD Ryzen 5 3600, 16GB RAM, 512GB SSD, GTX 1650">
+                <img src="https://hp.widen.net/content/lr7o2k7nxz/webp/lr7o2k7nxz.png?dpi=72&color=ffffff00&w=270" alt="Modern desktop tower with RGB">
+                <div class="card-body">
+                    <h3 class="title">HP EliteOne 840 G9 All-in-One PC Wolf Pro Security Edition</h3>
+                    <div class="specs">AMD Ryzen 5 3600 · 16GB RAM · 512GB NVMe · GTX 1650</div>
+                    <div class="price-row">
+                        <div class="price">KSh 72,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(6)">View</button>
+                            <button class="btn secondary" onclick="addToCart(6)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="Enterprise Q" data-price="220000" data-specs="Intel Xeon W, 64GB RAM, 2TB SSD, Quadro RTX 4000">
+                <img src="https://hp.widen.net/content/zudehdceyf/webp/zudehdceyf.png?dpi=72&color=ffffff00&w=270" alt="High-end workstation for enterprise tasks">
+                <div class="card-body">
+                    <h3 class="title">HP OmniDesk Desktop AI M03-0173t PC, Windows 11 Home</h3>
+                    <div class="specs">Intel Xeon W · 64GB RAM · 2TB NVMe · Quadro RTX 4000</div>
+                    <div class="price-row">
+                        <div class="price">KSh 220,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(7)">View</button>
+                            <button class="btn secondary" onclick="addToCart(7)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="RetroBuild" data-price="54000" data-specs="Custom build, AMD Ryzen 3, 8GB RAM, 256GB SSD">
+                <img src="https://www.hp.com/wcsstore/hpusstore/Banners/bundles/A1VF4UA_Monitor_Kit_573x430.png?imwidth=270&imdensity=1" alt="Custom built desktop PC on table">
+                <div class="card-body">
+                    <h3 class="title">HP Elite Mini 800 G9 Desktop PC + HP Series 7 Pro 27 inch QHD Monitor</h3>
+                    <div class="specs">AMD Ryzen 3 · 8GB RAM · 256GB SSD · Custom Case</div>
+                    <div class="price-row">
+                        <div class="price">KSh 54,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(8)">View</button>
+                            <button class="btn secondary" onclick="addToCart(8)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card" data-name="SilentOne" data-price="88000" data-specs="Intel i5-12400, 16GB RAM, 1TB SSD, Silent cooled">
+                <img src="https://hp.widen.net/content/uaozmrtodg/webp/uaozmrtodg.png?dpi=72&color=ffffff00&w=270" alt="Sleek silent desktop tower">
+                <div class="card-body">
+                    <h3 class="title">HP OmniStudio X All-in-One Desktop Next Gen AI 27-cs0000t PC 27"</h3>
+                    <div class="specs">Intel i5-12400 · 16GB RAM · 1TB SSD · Quiet Cooling</div>
+                    <div class="price-row">
+                        <div class="price">KSh 88,000</div>
+                        <div>
+                            <button class="btn" onclick="openModal(9)">View</button>
+                            <button class="btn secondary" onclick="addToCart(9)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- modal + simple cart feedback -->
+    <div id="modalBackdrop" class="modal-backdrop" onclick="closeModal(event)">
+        <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+            <div class="header">
+                <strong id="modalTitle">Product</strong>
+                <button class="btn secondary" onclick="closeModal()">Close</button>
+            </div>
+            <div class="content" id="modalContent">
+                <!-- populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">Vince Investment & Solutions Ltd — Contact: +254 796411804 | Email: okothden99@gmail.com</div>
+    </footer>
+
+    <script>
+        const products = Array.from(document.querySelectorAll('#productGrid .card'));
+
+        function openModal(index) {
+            const p = products[index];
+            const title = p.dataset.name;
+            const price = p.dataset.price;
+            const specs = p.dataset.specs;
+            const img = p.querySelector('img').src;
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalContent').innerHTML = `
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <img src="${img}" alt="${title}" style="width:280px;height:180px;object-fit:cover;border-radius:8px">
+          <div style="flex:1;min-width:220px">
+            <p style="margin:0 0 8px;font-weight:600">${title}</p>
+            <p style="margin:0 0 8px;color:var(--muted)">${specs}</p>
+            <p style="margin:0 0 12px;font-weight:700">KSh ${Number(price).toLocaleString('en-KE')}</p>
+            <p style="margin:0 0 12px">For purchases, contact our sales team or click Buy to add to cart.</p>
+            <div style="display:flex;gap:8px">
+              <button class="btn" onclick="checkout(${index})">Buy now</button>
+              <button class="btn secondary" onclick="contactSales()">Contact Sales</button>
+            </div>
+          </div>
+        </div>
+      `;
+            document.getElementById('modalBackdrop').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e && e.target && e.target.id !== 'modalBackdrop') return;
+            document.getElementById('modalBackdrop').style.display = 'none';
+        }
+
+        function addToCart(index) {
+            const p = products[index];
+            alert(`${p.dataset.name} added to cart. Contact sales to complete payment.`);
+        }
+
+        function checkout(index) {
+            const p = products[index];
+            const subject = encodeURIComponent(`Order enquiry: ${p.dataset.name}`);
+            const body = encodeURIComponent(`Hello Vince sales team,\n\nI'd like to purchase the following desktop:\n\nProduct: ${p.dataset.name}\nSpecs: ${p.dataset.specs}\nUnit price: KSh ${p.dataset.price}\nQuantity: 1\n\nPlease advise on payment & delivery.\n\nThank you.`);
+            window.location.href = `mailto:sales@vinceinvest.co.ke?subject=${subject}&body=${body}`;
+        }
+
+        function contactSales() {
+            window.location.href = 'mailto:okothden99@gmail.com?subject=Sales%20Enquiry';
+        }
+
+        // Search/filter
+        document.getElementById('search').addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase();
+            products.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const specs = card.dataset.specs.toLowerCase();
+                const price = card.dataset.price.toLowerCase();
+                card.style.display = (name.includes(q) || specs.includes(q) || price.includes(q)) ? '' : 'none';
+            })
+        });
+
+        document.getElementById('contactBtn').addEventListener('click', contactSales);
+        document.getElementById('viewAll').addEventListener('click', () => {
+            document.getElementById('search').value = '';
+            document.getElementById('search').dispatchEvent(new Event('input'));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vince Investment & Solutions Ltd — Printers for Sale</title>
+    <meta name="description" content="Printers & supplies — Sales · Service · Leasing. Vince Investment & Solutions Limited." />
+    <style>
+         :root {
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --accent: #4f46e5
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            margin: 0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            line-height: 1.4;
+            background: var(--bg);
+            color: #111827
+        }
+        
+        .container {
+            max-width: 1120px;
+            margin: 28px auto;
+            padding: 20px
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px
+        }
+        
+        h1 {
+            font-size: 22px;
+            margin: 0
+        }
+        
+        p.lead {
+            color: var(--muted);
+            margin: 4px 0 0
+        }
+        
+        .contact {
+            font-size: 13px;
+            color: var(--muted);
+            text-align: right
+        }
+        /* Grid */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 18px
+        }
+        
+        @media(min-width:700px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+        
+        @media(min-width:1000px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column
+        }
+        
+        .imgwrap {
+            height: 170px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px
+        }
+        
+        .imgwrap img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain
+        }
+        
+        .card-body {
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            flex: 1
+        }
+        
+        .title {
+            font-weight: 600;
+            margin: 0 0 6px
+        }
+        
+        .short {
+            color: var(--muted);
+            font-size: 13px;
+            margin: 0
+        }
+        
+        .specs {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #374151
+        }
+        
+        .specs li {
+            margin: 6px 0
+        }
+        
+        .card-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            border-top: 1px solid #f3f4f6
+        }
+        
+        .price {
+            font-weight: 700
+        }
+        
+        .actions button {
+            border: 0;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer
+        }
+        
+        .btn-white {
+            background: #f8fafc;
+            border: 1px solid #e6e9ef
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white
+        }
+        /* Info section */
+        
+        .info {
+            margin-top: 20px;
+            background: var(--card);
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04)
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 12px
+        }
+        
+        @media(min-width:800px) {
+            .info-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+        
+        .muted {
+            color: var(--muted);
+            font-size: 14px
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 13px
+        }
+        /* Utility */
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            background: #eef2ff;
+            color: #3730a3;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600
+        }
+        
+        a.link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background: var(--card);
+            padding: 16px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+        }
+        
+        nav h1 {
+            font-size: 18px;
+            margin: 0;
+            color: #111827;
+        }
+        
+        .nav__links {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav__links a {
+            text-decoration: none;
+            color: #111827;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: #f3f4f6;
+            border: 1px solid transparent;
+        }
+        
+        .nav__links a:hover {
+            background: #eef2ff;
+            color: var(--accent);
+        }
+        
+        .nav__links a.active {
+            background: var(--accent);
+            color: white;
+        }
+        
+        @media(max-width:700px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .nav__links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1> Vince Solutions </h1>
+        <ul class="nav__links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="Laptops.html">Laptops</a>
+            <a href="Printers.html" class="active">Printers</a>
+            <a href="Desktops.html">Desktops</a>
+            <a href="business-solutions.html">Business Solutions</a>
+            <a href="About us.html">About Us</a>
+        </ul>
+    </nav>
+    <div class="container">
+        <header>
+            <div>
+                <h1> Printing solutions </h1>
+                <p class="lead">Printers & Supplies — Sales · Service · Leasing</p>
+            </div>
+            <div class="contact">
+                <div class="badge">Call: +254796411804</div>
+                <div style="margin-top:6px">Email: <a href="mailto:okothden99@gmail.com" class="link">okothden99@gmail.com</a></div>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <div class="grid" id="products">
+                    <!-- Product 1 -->
+                    <article class="card">
+                        <div class="imgwrap">
+                            <img src="https://hp.widen.net/content/g2nnqwzp2k/webp/g2nnqwzp2k.png?dpi=72&color=ffffff00&w=270" alt="HP LaserJet 1020" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="title">HP LaserJet 1020</h3>
+                            <p class="short">Reliable monochrome laser for office use</p>
+                            <ul class="specs">
+                                <li>Monochrome laser</li>
+                                <li>Up to 14 pages per minute</li>
+                                <li>Compact footprint for small offices</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <div>
+                                <div class="price">KSh 45,000</div>
+                                <div class="muted" style="font-size:12px">Inclusive of VAT where applicable</div>
+                            </div>
+                            <div class="actions">
+                                <button class="btn-white" onclick="viewProduct('HP LaserJet 1020')">View</button>
+                                <button class="btn-primary" onclick="buyProduct('HP LaserJet 1020')">Buy Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="card">
+                        <div class="imgwrap">
+                            <img src="https://hp.widen.net/content/dneq9pnrk8/webp/dneq9pnrk8.png?dpi=72&color=ffffff00&w=270" alt="Canon S520" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="title">Canon S520 (Inkjet)</h3>
+                            <p class="short">Color inkjet for photo and document printing</p>
+                            <ul class="specs">
+                                <li>Color inkjet</li>
+                                <li>Photo-capable prints</li>
+                                <li>USB connectivity</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <div>
+                                <div class="price">KSh 65,000</div>
+                                <div class="muted" style="font-size:12px">Inclusive of VAT where applicable</div>
+                            </div>
+                            <div class="actions">
+                                <button class="btn-white" onclick="viewProduct('Canon S520')">View</button>
+                                <button class="btn-primary" onclick="buyProduct('Canon S520')">Buy Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="card">
+                        <div class="imgwrap">
+                            <img src="https://hp.widen.net/content/gwhriw4dyn/webp/gwhriw4dyn.png?dpi=72&color=ffffff00&w=270" alt="Epson C45" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="title">Epson C45</h3>
+                            <p class="short">Affordable inkjet for home & small office</p>
+                            <ul class="specs">
+                                <li>Inkjet technology</li>
+                                <li>Compact and low maintenance</li>
+                                <li>Low running cost</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <div>
+                                <div class="price">KSh 32,000</div>
+                                <div class="muted" style="font-size:12px">Inclusive of VAT where applicable</div>
+                            </div>
+                            <div class="actions">
+                                <button class="btn-white" onclick="viewProduct('Epson C45')">View</button>
+                                <button class="btn-primary" onclick="buyProduct('Epson C45')">Buy Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="card">
+                        <div class="imgwrap">
+                            <img src="https://hp.widen.net/content/dplcronj1i/webp/dplcronj1i.png?dpi=72&color=ffffff00&w=270" alt="HP Enterprise M558" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="title">HP Enterprise M558</h3>
+                            <p class="short">High-volume color laser for businesses</p>
+                            <ul class="specs">
+                                <li>Color laser</li>
+                                <li>High duty cycle</li>
+                                <li>Network-ready with duplex</li>
+                            </ul>
+                        </div>
+                        <div class="card-foot">
+                            <div>
+                                <div class="price">KSh 520,000</div>
+                                <div class="muted" style="font-size:12px">Inclusive of VAT where applicable</div>
+                            </div>
+                            <div class="actions">
+                                <button class="btn-white" onclick="viewProduct('HP Enterprise M558')">View</button>
+                                <button class="btn-primary" onclick="buyProduct('HP Enterprise M558')">Buy Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="info">
+                    <h3 style="margin:0 0 10px">Why buy from Vince?</h3>
+                    <div class="info-grid">
+                        <div>
+                            <h4 style="margin:0 0 6px">Warranty & Support</h4>
+                            <p class="muted">Official warranties, onsite repair options and free diagnostics for 30 days.</p>
+                        </div>
+                        <div>
+                            <h4 style="margin:0 0 6px">Toner & Supplies</h4>
+                            <p class="muted">Genuine cartridges and cost-effective maintenance plans to lower running costs.</p>
+                        </div>
+                        <div>
+                            <h4 style="margin:0 0 6px">Leasing & Financing</h4>
+                            <p class="muted">Flexible leasing terms to get high-end printers with low upfront cost.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <section style="margin-top:14px;text-align:center">
+                    <p class="muted">Want this page as a printable brochure or PDF? Contact our sales team.</p>
+                    <a href="mailto:okothden99@gmail.com?subject=Printers%20Purchase%20Inquiry" class="btn-primary" style="display:inline-block;margin-top:8px;padding:10px 18px;border-radius:10px;text-decoration:none;color:white">Contact Sales</a>
+                </section>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; <span id="year"></span> Vince Investment & Solutions Limited — All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function viewProduct(name) {
+            alert('View product: ' + name + '\nContact sales at okothden99@gmail.com or call +254796411804');
+        }
+
+        function buyProduct(name) {
+            const proceed = confirm('Buy "' + name + '" — Proceed to contact sales?');
+            if (proceed) {
+                window.location.href = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=okothden99@gmail.com&su=' + encodeURIComponent('Purchase enquiry - ' + name) + '&body=' + encodeURIComponent('Hello Vince investments support team,\n\nI want to buy the ' + name + ' printer. please get in touch with payment instructions.\n\nThank you.');
+            }
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

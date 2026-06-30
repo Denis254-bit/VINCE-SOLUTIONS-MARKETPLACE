@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vince Investment & Solution Limited — Laptop Store</title>
+    <meta name="description" content="Laptop sales by Vince Investment & Solution Limited" />
+    <style>
+         :root {
+            --accent: #0b66ff;
+            --card-bg: #ffffff;
+            --muted: #6b7280;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            margin: 0;
+            background: #f3f4f6;
+            color: #111;
+            font-family: "EB Garamond", serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        
+        header {
+            background: linear-gradient(90deg, #061b4a 0%, #0b66ff 100%);
+            color: #fff;
+            padding: 28px 20px
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px
+        }
+        
+        .brand {
+            display: flex;
+            gap: 16px;
+            align-items: center
+        }
+        
+        .brand img {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.15)
+        }
+        
+        .brand h1 {
+            font-size: 20px;
+            margin: 0
+        }
+        
+        .brand p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.95
+        }
+
+        .site-nav {
+            background: #0b66ff;
+            color: #fff;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+            padding: 14px 0;
+        }
+
+        .nav-title {
+            font-size: 14px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .nav__links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 10px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            font: inherit;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-btn:hover,
+        .nav-btn:focus {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+        /* search / controls */
+        
+        .controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 18px 0
+        }
+        
+        .search {
+            flex: 1;
+            display: flex
+        }
+        
+        .search input {
+            flex: 1;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer
+        }
+        
+        .muted {
+            color: var(--muted)
+        }
+        /* grid */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column
+        }
+        
+        .card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover
+        }
+        
+        .card .content {
+            padding: 12px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column
+        }
+        
+        .title {
+            font-weight: 600;
+            margin: 0 0 6px
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: auto
+        }
+        
+        .specs {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 6px 0
+        }
+        
+        .card .actions {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            border-top: 1px solid #eef2f7
+        }
+        
+        .outline {
+            background: #fff;
+            color: var(--accent);
+            border: 1px solid var(--accent)
+        }
+        /* modal cart */
+        
+        .cart-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 999px;
+            box-shadow: 0 8px 24px rgba(11, 102, 255, 0.24);
+            cursor: pointer
+        }
+        
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px
+        }
+        
+        .modal.open {
+            display: flex
+        }
+        
+        .panel {
+            width: 100%;
+            max-width: 760px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden
+        }
+        
+        .panel header {
+            padding: 16px;
+            border-bottom: 1px solid #f1f5f9
+        }
+        
+        .panel .body {
+            padding: 16px;
+            max-height: 520px;
+            overflow: auto
+        }
+        
+        .panel .footer {
+            padding: 16px;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+        
+        footer {
+            padding: 28px 20px;
+            background: #0b1220;
+            color: #dbeafe;
+            margin-top: 28px
+        }
+        
+        footer a {
+            color: #bfdbfe
+        }
+        
+        @media (max-width:520px) {
+            .brand h1 {
+                font-size: 16px
+            }
+            .card img {
+                height: 150px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="site-nav">
+        <div class="nav-inner container">
+            <h1 class="nav-title">SPECIAL OFFERS</h1>
+            <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav__links" id="nav-links">
+                <button type="button" class="nav-btn" onclick="location.href='index.html'">Home</button>
+                <button type="button" class="nav-btn" style="background:#0b66ff; border-color:transparent;" onclick="location.href='Laptops.html'">Laptops</button>
+                <button type="button" class="nav-btn" onclick="location.href='Printers.html'">Printers</button>
+                <button type="button" class="nav-btn" onclick="location.href='Desktops.html'">Desktops</button>
+                <button type="button" class="nav-btn" onclick="location.href='business-solutions.html'">Business Solutions</button>
+                <button type="button" class="nav-btn" onclick="location.href='About us.html'">About Us</button>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <header>
+        <div class="container">
+            <div class="brand">
+                <img src="https://d13pvy8xd75yde.cloudfront.net/global/phones/70906196550152dc2064bae98a5fe037.png" alt="Vince logo" />
+                <div>
+                    <h1>Explore products</h1>
+                    <p>Quality laptops • Reliable service • Kisumu Office</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="controls">
+            <div class="search">
+                <input id="search" placeholder="Search laptops, e.g. Megabook, T14, K15" />
+                <button class="btn" onclick="applyFilter()">Search</button>
+            </div>
+            <div style="display:flex;gap:8px">
+                <select id="sort" onchange="renderProducts()">
+                    <option value="featured">Sort: Featured</option>
+                    <option value="price-asc">Price: Low → High</option>
+                    <option value="price-desc">Price: High → Low</option>
+                </select>
+                <button class="btn outline" onclick="resetFilters()">Reset</button>
+            </div>
+        </div>
+
+        <section id="catalog" class="grid" aria-live="polite">
+            <!-- products injected by JS -->
+        </section>
+
+        <button class="cart-btn" id="openCart">Cart (<span id="cartCount">0</span>)</button>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+            <div>
+                <strong>Vince Investment & Solution Limited</strong>
+                <div class="muted">P.O. Box 40100, Kisumu • +254 796 411 804 • info@vince.co.ke</div>
+            </div>
+            <div class="muted">© "Vince Investment & Solution Limited" — All rights reserved</div>
+        </div>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="panel" role="document">
+            <header>
+                <strong>Your Cart</strong>
+            </header>
+            <div class="body" id="cartBody">
+                <p class="muted">Your cart is empty.</p>
+            </div>
+            <div class="footer">
+                <div class="muted">Total: KES <span id="cartTotal">0</span></div>
+                <div>
+                    <button class="btn outline" onclick="closeCart()">Continue shopping</button>
+                    <button class="btn" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample laptop products with real unsplash images and data matching user requests
+        const products = [
+            {
+                id: 'megabook-t14-air',
+                name: 'Megabook T14 Air',
+                specs: 'Intel Core i5-12450H · 8GB RAM · 512GB NVMe SSD · Core 14.1"',
+                price: 75000,
+                img: 'https://d13pvy8xd75yde.cloudfront.net/global/phones/70906196550152dc2064bae98a5fe037.png'
+            },
+            {
+                id: 'megabook-t14-air-plus',
+                name: 'Megabook T14 Air Plus',
+                specs: 'AMD Ryzen 5 7530U · 16GB RAM · 512GB SSD · 14.0" IPS Display',
+                price: 88000,
+                img: 'https://d13pvy8xd75yde.cloudfront.net/global/phones/e149fbbc04c0dcda2e602d2ed6fcb865.webp'
+            },
+            {
+                id: 'megabook-t1-15',
+                name: 'Megabook T1 15.6',
+                specs: 'Intel Quad-Core i5 · 12GB RAM · 512GB Fast SSD · FHD ComfortView',
+                price: 66000,
+                img: 'https://d13pvy8xd75yde.cloudfront.net/global/phones/e149fbbc04c0dcda2e602d2ed6fcb865.webp'
+            },
+            {
+                id: 'megabook-16-pro',
+                name: 'Megabook 16 Pro',
+                specs: 'Intel Core i7 Gen12 · 16GB RAM · 1TB NVMe SSD · 16.0" QHD Display',
+                price: 115000,
+                img: 'https://d13pvy8xd75yde.cloudfront.net/global/phones/8fd2a31d21921f4d0d0a493995a3eaeb.png'
+            },
+            {
+                id: 'megabook-t1-14-amd',
+                name: 'Megabook T1 14 AMD',
+                specs: 'AMD Hexa-Core Ryzen · 8GB RAM · 256GB SSD · Ultra Durable Lite',
+                price: 59000,
+                img: 'https://d13pvy8xd75yde.cloudfront.net/global/phones/23e057cc51d384abad47d215b5021f6c.png'
+            },
+            {
+                id: 'megabook-k15-amd',
+                name: 'Megabook K15 AMD 7000',
+                specs: 'Ryzen 5 7520U Octa-Thread · 16GB RAM · 512GB SSD · AMD Radeon Graphics',
+                price: 84000,
+                img: 'https://d13pvy8xd75yde.cloudfront.net/global/phones/0ff1e3db28d2f9f96079fa26ef4c7d96.webp'
+            },
+            {
+                id: 'megabook-k15s-amd',
+                name: 'Megabook K15S AMD 7000',
+                specs: 'Ryzen 7 7730U Premium · 16GB RAM · 1TB NVMe SSD · Metallic Finish Matte',
+                price: 104000,
+                img: 'https://d13pvy8xd75yde.cloudfront.net/global/phones/708b09ab2041d7113a90f0a80c18e719.png'
+            }
+        ];
+
+        // Basic cart
+        let cart = {};
+
+        function formatKES(n) {
+            return new Intl.NumberFormat('en-KE').format(n)
+        }
+
+        function renderProducts(list = products) {
+            const container = document.getElementById('catalog');
+            container.innerHTML = '';
+
+            // sorting
+            const sort = document.getElementById('sort').value;
+            if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
+            if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price);
+
+            for (const p of list) {
+                const card = document.createElement('article');
+                card.className = 'card';
+                card.innerHTML = `
+          <img loading="lazy" src="${p.img}" alt="${p.name}" />
+          <div class="content">
+            <h3 class="title">${p.name}</h3>
+            <div class="specs">${p.specs}</div>
+            <div class="price">KES ${formatKES(p.price)}</div>
+          </div>
+          <div class="actions">
+            <button class="btn" style="font-weight:600;font-size:12px;" onclick="addToCart('${p.id}')">Add to cart</button>
+            <button class="btn outline" style="font-weight:600;font-size:12px;" onclick="viewDetails('${p.id}')">View</button>
+          </div>
+        `;
+                container.appendChild(card);
+            }
+        }
+
+        function addToCart(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return;
+            cart[id] = cart[id] ? {...cart[id],
+                qty: cart[id].qty + 1
+            } : {
+                product: p,
+                qty: 1
+            };
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const count = Object.values(cart).reduce((s, h) => s + h.qty, 0);
+            document.getElementById('cartCount').textContent = count;
+            const total = Object.values(cart).reduce((s, h) => s + (h.product.price * h.qty), 0);
+            document.getElementById('cartTotal').textContent = formatKES(total);
+
+            const body = document.getElementById('cartBody');
+            body.innerHTML = '';
+            if (count === 0) {
+                body.innerHTML = '<p class="muted">Your cart is empty.</p>';
+                return
+            }
+
+            const ul = document.createElement('div');
+            for (const key in cart) {
+                const item = cart[key];
+                const row = document.createElement('div');
+                row.style.display = 'flex';
+                row.style.gap = '12px';
+                row.style.alignItems = 'center';
+                row.style.marginBottom = '12px';
+                row.innerHTML = `
+          <img src="${item.product.img}" style="width:76px;height:54px;object-fit:cover;border-radius:6px" alt=""/>
+          <div style="flex:1">
+            <div style="font-weight:600; font-size:13px">${item.product.name}</div>
+            <div class="muted" style="font-size:11px">${item.product.specs}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:13px; font-weight:700">KES ${formatKES(item.product.price)}</div>
+            <div style="font-size:11px;margin-top:6px">Qty: <button onclick="changeQty('${key}',-1)">-</button> ${item.qty} <button onclick="changeQty('${key}',1)">+</button></div>
+          </div>
+        `;
+                ul.appendChild(row);
+            }
+            body.appendChild(ul);
+        }
+
+        function changeQty(id, delta) {
+            if (!cart[id]) return;
+            cart[id].qty += delta;
+            if (cart[id].qty <= 0) delete cart[id];
+            updateCartUI();
+        }
+
+        function viewDetails(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return;
+            alert(p.name + "\n" + p.specs + "\nPrice: KES " + formatKES(p.price));
+        }
+
+        function applyFilter() {
+            const q = document.getElementById('search').value.trim().toLowerCase();
+            const filtered = products.filter(p => (p.name + ' ' + p.specs).toLowerCase().includes(q));
+            renderProducts(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('search').value = '';
+            document.getElementById('sort').value = 'featured';
+            renderProducts();
+        }
+
+        // cart modal
+        const modal = document.getElementById('modal');
+        document.getElementById('openCart').addEventListener('click', () => {
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            updateCartUI();
+        })
+
+        function closeCart() {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+        }
+
+        function checkout() {
+            if (Object.keys(cart).length === 0) {
+                alert('Cart is empty');
+                return
+            }
+            const orderList = Object.values(cart).map(item => `- ${item.product.name} (Qty: ${item.qty})`).join('\n');
+            const mailSubject = encodeURIComponent('Laptop Purchase Request');
+            const mailBody = encodeURIComponent(`Hi Vince Solutions Support Team,\n\nI want to buy the following laptops:\n\n${orderList}\n\nPlease help me complete this purchase order.\n\nThank you!`);
+            window.location.href = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=okothden99@gmail.com&su=${mailSubject}&body=${mailBody}`;
+        }
+
+        // initial render
+        renderProducts();
+        updateCartUI();
+    </script>
+</body>
+
+</html>

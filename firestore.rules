@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Allow public read on the test connection document to facilitate startup connectivity checks
+    match /test/connection {
+      allow read: if true;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userUid) {
+      return isSignedIn() && request.auth.uid == userUid;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Entity validation blueprint for Corporate Consultation
+    function isValidConsultation(data) {
+      return data.keys().hasAll(['userUid', 'userEmail', 'title', 'description', 'clientEmail', 'scheduledAt', 'createdTimestamp'])
+          && data.keys().size() == 7
+          && data.userUid is string
+          && data.userUid == request.auth.uid // UID Spoofing guard
+          && data.userEmail is string
+          && data.userEmail.size() > 0
+          && data.userEmail.size() <= 256
+          && data.title is string
+          && data.title.size() > 0
+          && data.title.size() <= 200
+          && data.description is string
+          && data.description.size() <= 1000
+          && data.clientEmail is string
+          && data.clientEmail.size() <= 256
+          && data.scheduledAt is string
+          && data.scheduledAt.size() <= 100
+          && data.createdTimestamp is string
+          && data.createdTimestamp.size() <= 100;
+    }
+
+    // Consultations match block
+    match /consultations/{consultationId} {
+      allow get: if isSignedIn() && isOwner(resource.data.userUid);
+      
+      allow list: if isSignedIn() && resource.data.userUid == request.auth.uid; // Query Enforcer - no blanket listings
+      
+      allow create: if isSignedIn()
+                    && isValidId(consultationId)
+                    && isValidConsultation(request.resource.data);
+
+      allow update: if isSignedIn()
+                    && isOwner(resource.data.userUid)
+                    && isValidConsultation(request.resource.data)
+                    && request.resource.data.userUid == resource.data.userUid; // Immortality / Spoof guard
+
+      allow delete: if isSignedIn() && isOwner(resource.data.userUid);
+    }
+  }
+}

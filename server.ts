@@ -93,7 +93,7 @@ async function startServer() {
         for (let i = 0; i < 3; i++) {
             try {
                 const response = await ai.models.generateContent({
-                  model: "gemini-3.5-flash",
+                  model: "gemini-2.0-flash",
                   contents: prompt,
                   config: {
                     systemInstruction: systemPrompt,
@@ -174,7 +174,7 @@ Please return a clear, step-by-step route itinerary assigned to the vehicle(s), 
         for (let i = 0; i < 3; i++) {
             try {
                 const response = await ai.models.generateContent({
-                  model: "gemini-3.5-flash",
+                  model: "gemini-2.0-flash",
                   contents: prompt,
                   config: {
                     systemInstruction: "You are an advanced route optimization solver and logistics engine.",

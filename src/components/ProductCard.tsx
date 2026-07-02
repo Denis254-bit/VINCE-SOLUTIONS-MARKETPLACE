@@ -15,16 +15,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onView, onAdd
     return new Intl.NumberFormat('en-KE').format(p);
   };
 
-  const categoryColors = {
-    laptops: 'bg-blue-50/80',
-    desktops: 'bg-emerald-50/80',
-    printers: 'bg-rose-50/80',
-    solutions: 'bg-violet-50/80'
-  };
-  const bgColor = categoryColors[product.category] || 'bg-slate-50/80';
-
   return (
-    <div className={`group flex flex-col ${bgColor} backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-200/60 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] transition-all duration-500 ease-out transform hover:-translate-y-2 hover:border-slate-300/80`}>
+    <div className="group flex flex-col bg-white/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-200/60 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] transition-all duration-500 ease-out transform hover:-translate-y-1.5 hover:border-slate-300/60">
       {/* Image container */}
       <div className="relative aspect-[16/10] overflow-hidden flex items-center justify-center p-6 bg-slate-50/50">
         <img

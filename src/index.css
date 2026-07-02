@@ -45,14 +45,14 @@
 .dark .bg-white,
 .dark .bg-white\/80,
 .dark .bg-white\/90 {
-  background-color: rgba(219, 11, 11, 0.952) !important;
+  background-color: rgba(20, 20, 20, 0.5) !important;
   backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(158, 97, 6, 0.849) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .dark .bg-slate-50,
 .dark .bg-slate-50\/40 {
-  background-color: rgba(16, 87, 202, 0.884) !important;
+  background-color: rgba(30, 41, 59, 0.3) !important;
 }
 
 .dark .bg-slate-100 {
@@ -60,7 +60,7 @@
 }
 
 .dark .bg-slate-200 {
-  background-color: rgba(161, 223, 16, 0.6) !important;
+  background-color: rgba(51, 65, 85, 0.6) !important;
 }
 
 .dark .bg-slate-300 {

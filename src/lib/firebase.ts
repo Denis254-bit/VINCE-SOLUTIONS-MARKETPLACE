@@ -14,7 +14,7 @@ import firebaseConfig from '../../firebase-applet-config.json';
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 // CRITICAL: Initialize Firestore with the database ID or it will fail to connect
-export const db = getFirestore(app, (firebaseConfig as any).firestoreDatabaseId);
+export const db = getFirestore(app, (firebaseConfig as any).firestoreDatabaseId || "ai-studio-3573e3ec-b1f1-4f0f-9650-be36e29a77a9");
 
 // Test Connection on load
 async function testConnection() {
@@ -126,11 +126,7 @@ export const googleSignIn = async (): Promise<{ user: User; accessToken: string 
     }
     cachedAccessToken = credential.accessToken;
     return { user: result.user, accessToken: cachedAccessToken };
-  } catch (error: any) {
-    if (error.code === 'auth/popup-closed-by-user') {
-      console.warn('Google Auth Sign-In popup closed by user.');
-      return null;
-    }
+  } catch (error) {
     console.error('Google Auth Sign-In has failed:', error);
     throw error;
   } finally {

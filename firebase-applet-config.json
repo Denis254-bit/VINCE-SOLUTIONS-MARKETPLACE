@@ -1,9 +1,10 @@
 {
-  "projectId": "sixth-bison-prtgb",
-  "appId": "1:751118718840:web:28e71764ce708ef4831a8d",
-  "apiKey": "AIzaSyC98SsgloGBDcQc_QX8k_EkpJdIGbnFDtg",
-  "authDomain": "sixth-bison-prtgb.firebaseapp.com",
-  "storageBucket": "sixth-bison-prtgb.firebasestorage.app",
-  "messagingSenderId": "751118718840",
+  "projectId": "marketplace-501009",
+  "appId": "1:4789940113:web:f95d7caea03964fd597430",
+  "apiKey": "AIzaSyC4gedhecjzES-QeNrk_ksbn4gpnZQFWGo",
+  "authDomain": "marketplace-501009.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-remixvincesoluti-de6b6c9b-d65a-433f-8876-037c8479c5c6",
+  "storageBucket": "marketplace-501009.firebasestorage.app",
+  "messagingSenderId": "4789940113",
   "measurementId": ""
 }

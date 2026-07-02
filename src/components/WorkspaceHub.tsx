@@ -1074,7 +1074,7 @@ export default function WorkspaceHub() {
   );
 
   return (
-    <section className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-6 md:p-8 space-y-6">
+    <section className="bg-blue-50 rounded-3xl border border-blue-200/60 shadow-sm p-6 md:p-8 space-y-6">
       
       {/* Upper Brand Alignment Banner */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-slate-100 pb-5 gap-4">
